@@ -13,7 +13,7 @@ max_speed=""
 count_packet=""
 avatar_url=""
 username=""
-script_dir=$(dirname "$0")
+script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 
 # ASCII Art Display
 show_header() {
@@ -49,7 +49,10 @@ check_dependencies() {
     done
 
     if [[ ! -x "$script_dir/libs/discord.sh" ]]; then
-        echo "Error: discord.sh script not found or not executable in libs directory"
+        echo "Error: discord.sh script not found or not executable at: $script_dir/libs/discord.sh"
+        echo "Check:"
+        echo "1. File exists: $(ls -l $script_dir/libs/discord.sh 2>/dev/null)"
+        echo "2. Is executable: $(test -x "$script_dir/libs/discord.sh" && echo "Yes" || echo "No")"
         exit 1
     fi
 }
