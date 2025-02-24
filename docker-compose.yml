@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  ddos-monitor:
+    build: .
+    container_name: ddos-monitor
+    restart: unless-stopped
+    network_mode: host
+    privileged: true
+    volumes:
+      - ./libs:/app/libs
+      - ./dumps:/app/dumps
+    environment:
+      - WEBHOOK=${WEBHOOK}
+      - INTERFACE=${INTERFACE}
+      - MAX_SPEED=${MAX_SPEED}
+      - COUNT_PACKET=${COUNT_PACKET}
+      - AVATAR=${AVATAR}
+      - USERNAME=${USERNAME}
