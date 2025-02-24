@@ -21,5 +21,4 @@ RUN chmod +x ddoswarningbandwidth.sh \
     && chmod +x libs/discord.sh
 
 # Entrypoint configuration
-ENTRYPOINT ["./ddoswarningbandwidth.sh"]
-CMD ["$WEBHOOK", "$INTERFACE", "$MAX_SPEED", "$COUNT_PACKET"]
+ENTRYPOINT ["/bin/sh", "-c", "./ddoswarningbandwidth.sh \"$WEBHOOK\" \"$INTERFACE\" \"$MAX_SPEED\" \"$COUNT_PACKET\" \"$AVATAR\" \"$USERNAME\""]

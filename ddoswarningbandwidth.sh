@@ -15,6 +15,15 @@ avatar_url=""
 username=""
 script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 
+echo "[Script Debug] Received arguments:"
+echo "Webhook: $1"
+echo "Interface: $2"
+echo "Max Speed: $3"
+echo "Count Packet: $4"
+echo "Avatar: $5"
+echo "Username: $6"
+
+
 # ASCII Art Display
 show_header() {
     figlet -c "DDoS Warning Bandwidth"
