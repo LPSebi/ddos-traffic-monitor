@@ -7,7 +7,8 @@ RUN apk add --no-cache \
     figlet \
     tcpdump \
     vnstat \
-    jq
+    jq \
+    curl
 
 # Create working directory
 WORKDIR /app
